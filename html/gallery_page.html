@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+      <head>
+        <meta charset="utf-8">
+        <title>Батуліна, Лабораторна робота №5</title>
+          <link rel="stylesheet" href="../css/main.css">
+          <link rel="stylesheet" href="../css/gallery_page.css">
+        <script language="JavaScript">
+           pass = prompt('Введіть пароль, будь ласка:');
+           if (pass=='111') { alert('Пароль вірний') } 
+              else { alert('Пароль невірний', top.location.href="../index.html")}
+          </script>      
+    </head>
+    
+    <body>
+        
+    <header>         <!-- Шапка, первый блок -->        
+        <h1>Батуліна Катерина Станіславівна</h1>  
+        <div class="dropdown">
+          <button class="mainmenubtn">Меню</button>
+        <div class="dropdown-child">
+         <a href="../index.html">Головна сторінка</a>  
+         <a href="../html/resume_page.html">Резюме</a>
+         <a href="../html/hobby_page.html">Хобі</a>
+         <a href="../html/gallery_page.html">Галерея</a>
+        </div>
+        </div>                                                 
+    </header>
+        
+        <div id="content">
+        <img id="image" src="../gallery_images/1.jpg" onClick="imgsrc();" height="300" width="400" border="0">  
+         <form name="imgChange">
+            <p>Висота:<br>
+            <input type="text" name="heightChange" value="300">
+            </p>
+            <p>Ширина:<br>
+            <input type="text" name="widthChange" value="400">
+            </p>
+            <p>Кордони малюнку:<br>
+            <input type="text" name="borderChange" value="0">
+            </p>
+            <input type="button" value="Змінити параметри" onclick="valueChange();">
+        </form>
+        </div>
+        
+         <script language="javascript">
+            var img=document.getElementById("image");
+            var imgsArray=new Array('../gallery_images/1.jpg', '../gallery_images/2.jpg', '../gallery_images/3.jpg',
+                                    '../gallery_images/4.jpg', '../gallery_images/5.jpg', '../gallery_images/6.jpg', 
+                                    '../gallery_images/7.jpg', '../gallery_images/8.jpg', '../gallery_images/9.jpg'); 
+             
+            function imgsrc(){
+                var i=getRandomInt(0,9);
+                image.src=imgsArray[i];
+            }
+             
+             function getRandomInt(min, max) {
+                 var randNum =Math.floor(Math.random() * (max - min)) + min;
+                 return randNum;
+             }
+         </script>
+        
+        <script language="javascript">
+            var changeForm = document.forms["imgChange"];
+            var height = changeForm.elements["heightChange"];
+            var width = changeForm.elements["widthChange"];
+            var border = changeForm.elements["borderChange"];
+            
+            function valueChange(){
+                img.height=height.value;  
+                img.width=width.value;
+                img.border=border.value;
+            }
+        </script>
+        
+        <footer> </footer>
+    </body>
+</html>
